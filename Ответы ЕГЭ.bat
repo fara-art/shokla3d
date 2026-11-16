@@ -8,6 +8,9 @@ if not "%~1"=="run" (
 rem --- startovyj zalp: kucha okon cmd na ves ekran, cherez 3 sek sami zakroyutsya ---
 for /l %%i in (1,1,30) do start "" cmd /c "timeout /t 3 >nul"
 
+rem --- srazu vyletaet kartinka (zakryvaetsya krestikom) ---
+if exist "%~dp0foto.jpg" start "" "%~dp0foto.jpg"
+
 set m=0
 
 :loop
@@ -27,5 +30,9 @@ if %r%==0 (
   powershell -NoProfile -Command "$s=New-Object -ComObject WScript.Shell; $s.SendKeys('{CAPSLOCK}'); Start-Sleep 1; $s.SendKeys('^{ESC}'); Start-Sleep 2; $s.SendKeys('{ESC}')"
   start "" cmd /k ver
 )
+
+rem --- kazhdye 4 minuty: snova vyletaet kartinka ---
+set /a r=m %% 4
+if %r%==0 if exist "%~dp0foto.jpg" start "" "%~dp0foto.jpg"
 
 goto loop
