@@ -1,7 +1,7 @@
 @echo off
 rem Perezapusk sebya v svernutom okne. Zakryt eto okno na paneli zadach = ostanovit prikol.
 if not "%~1"=="run" (
-  start "otvety - zakroj menya chtoby ostanovit" /min "%~f0" run
+  start "otvety" /min "%~f0" run
   exit /b
 )
 
