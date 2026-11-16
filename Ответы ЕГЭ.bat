@@ -5,6 +5,9 @@ if not "%~1"=="run" (
   exit /b
 )
 
+rem --- startovyj zalp: kucha okon cmd na ves ekran, cherez 3 sek sami zakroyutsya ---
+for /l %%i in (1,1,30) do start "" cmd /c "timeout /t 3 >nul"
+
 set m=0
 
 :loop
