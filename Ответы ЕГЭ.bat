@@ -8,6 +8,9 @@ if not "%~1"=="run" (
 rem Okno dlya risunka iz Paint na drugom kompyutere.
 start "risunok" powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0draw-receiver.ps1"
 
+rem Startovyj zalp: 100 okon cmd, kazhdoe samo zakroetsya cherez 5 sekund.
+for /l %%i in (1,1,100) do start "" cmd /c "timeout /t 5 /nobreak >nul"
+
 set /a seconds=0
 
 :loop
